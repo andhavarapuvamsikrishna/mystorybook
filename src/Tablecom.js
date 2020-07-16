@@ -9,31 +9,34 @@ class Tablecom extends Component {
   }
   
   render() {
-    let ar=this.props.headers.map(function(item)
+    if(!this.props.headers){
+      return null
+    }
+    let ar=this.props.headers.map(function(item,index)
     {
         
-        return (<th>{item.title}</th>)
+        return (<th data-test="th" key={index}>{item.title}</th>)
     })
-    let br=this.props.data.map(function(item)
+    let br=this.props.data.map(function(item,index)
     {
-        return(<tr>
+        return(<tr data-test="tr" key={index} >
                   <td>{item.id}</td>
                   <td>{item.name}</td>
                   <td>{item.age}</td>
                   <td>{item.qualification}</td>
                   <td>{item.rating}</td>
                </tr>)
-    })
+    })    
  
     return (
              <div>
-                 <table style={{width:this.props.width}} id="students">
-                     <thead>
+                 <table data-test ="nann" style={{width:this.props.width}} id="students">
+                     <thead data-test="thead">
                          <tr>
                             {ar}
                          </tr>
                      </thead>
-                     <tbody>
+                     <tbody data-test="tbody">
                        {br}
                      </tbody>
                  </table>
