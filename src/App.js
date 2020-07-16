@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Tablecom from "./Tablecom";
+import Header from "./components/Header"
 class App extends Component {
   constructor() {
     super();
@@ -34,6 +35,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Header />
         <Tablecom
           headers={this.state.headers}
           data={this.state.data}
