@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import table from "./table.css"
+import PropTypes from "prop-types"
+import { prototype } from "enzyme-adapter-react-16";
 class Tablecom extends Component {
   constructor() {
     super();
@@ -44,5 +46,19 @@ class Tablecom extends Component {
         )
   }
 }
-
+Tablecom.propTypes={
+    width:PropTypes.string,
+    headers:PropTypes.arrayOf(PropTypes.shape({
+      title:PropTypes.string
+    })),
+    data:PropTypes.arrayOf(PropTypes.shape({
+      id:PropTypes.number,
+      name:PropTypes.string,
+      age:PropTypes.nuber,
+      qualification:PropTypes.string,
+      rating:prototype.number
+  
+    })),
+    
+}
 export default Tablecom;

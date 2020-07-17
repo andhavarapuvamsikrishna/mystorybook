@@ -37,7 +37,7 @@ class App extends Component {
       <div>
         <Header /> 
         <Tablecom key={this.state.field}
-          headers={this.state.headers}
+          headers={this.state.headers}  
           data={this.state.data}
           width="100%"
         />

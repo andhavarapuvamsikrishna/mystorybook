@@ -2,11 +2,35 @@ import React from "react";
 import {shallow} from "enzyme"
 import Tablecom from "./Tablecom"
 import { findByTestAttr } from "./utils/find"
+import checkPropTypes from "check-prop-types"
+
 const setUp = (props={}) =>{
     const component=shallow(<Tablecom {...props} />)
     return component;
 } ;
 describe("my table component",()=>{
+
+    describe("checking prop types",() =>{
+        it("should not throw a warning",() =>{
+            const expectedProps = {  
+                width:"90%",
+                headers:[
+                    { title: "Id" }, 
+                    { title: "Name" },
+                    { title: "Age" },
+                    { title: "Qualification" },  
+                    { title: "Rating" },
+                  ],
+                data:[
+                    { id: 1, name: "a", age: 29, qualification: "B.Com", rating: 3 },
+                    { id: 2, name: "b", age: 35, qualification: "B.Sc", rating: 5 },
+                ]
+            }
+            const propsErr=checkPropTypes(Tablecom.propTypes,expectedProps,'props',Tablecom.name);
+            expect(propsErr).toBeUndefined();
+             
+        })     
+    })
 
     describe("have no props",() =>{
         let wrapper
@@ -42,7 +66,7 @@ describe("my table component",()=>{
         let wrapper;
         beforeEach(() =>{
             const props = {
-                headers:[
+                headers:[ 
                     { title: "Id" },
                     { title: "Name" },
                     { title: "Age" },
