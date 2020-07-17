@@ -2,16 +2,29 @@ import React from "react";
 import {shallow} from "enzyme"
 import Tablecom from "./Tablecom"
 import { findByTestAttr } from "./utils/find"
-const setUp = ({props={}}) =>{
+const setUp = (props={}) =>{
     const component=shallow(<Tablecom {...props} />)
     return component;
 } ;
 describe("my table component",()=>{
 
+    describe("have no props",() =>{
+        let wrapper
+        beforeEach(() =>
+        {
+            wrapper=setUp()
+        })
+        it("should not render without props",() =>{
+            const table=findByTestAttr(wrapper,"table")
+            expect(table.length).toBe(0) 
+        })
+        
+    })
+
     describe('Have props',() =>{
-        const tprops = {
+        const tprops = {  
             headers:[
-                { title: "Id" },
+                { title: "Id" }, 
                 { title: "Name" },
                 { title: "Age" },
                 { title: "Qualification" },
@@ -23,7 +36,8 @@ describe("my table component",()=>{
                 { id: 3, name: "c", age: 42, qualification: "B.E", rating: 3 },
                 { id: 4, name: "a", age: 29, qualification: "B.tech", rating: 2 },
                 { id: 5, name: "a", age: 29, qualification: "B.arch", rating: 1 }
-            ]
+            ],
+            width:"100%"
         };
         let wrapper;
         beforeEach(() =>{
@@ -43,9 +57,9 @@ describe("my table component",()=>{
                     { id: 5, name: "a", age: 29, qualification: "B.arch", rating: 1 ,someTest:10 }
                 ]  
             };
-            console.log(props.data.length) 
-            wrapper=shallow(<Tablecom {...props} />)
-        });
+            //console.log(props.data.length) 
+            wrapper=setUp(props)  
+        });  
         it("should render without errors",() => {
             const table = findByTestAttr(wrapper,"nann")
             expect(table.length).toBe(1);
@@ -57,7 +71,7 @@ describe("my table component",()=>{
         it("should only have one body tag",() => {
             
             const tbody=findByTestAttr(wrapper,"tbody")
-            expect(tprops.data.length).toBe(5)    
+            expect(tbody.length).toBe(1)    
         }) 
         it("the number of th tags should be equal to no of columns",() => {
 

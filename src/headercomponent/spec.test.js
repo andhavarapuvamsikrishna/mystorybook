@@ -17,8 +17,5 @@ describe("my header component", () => {
     let wrapper = findByTestAttr(component,'wrap')
     expect(wrapper.length).toBe(1);
   });
-  it("should render a logoimg",() =>{
-    const wrapper=findByTestAttr(component,'logoimg')
-    expect(wrapper.length).toBe(1);
-})
+  
 });
