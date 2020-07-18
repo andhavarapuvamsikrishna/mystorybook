@@ -11,7 +11,7 @@ const getComponent=(props={})=>{
 describe("my header component", () => {
     let component;
     beforeEach(() =>{
-        component=getComponent()
+        component=getComponent()  
     })
   it("it should render without errors", () => {
     let wrapper = findByTestAttr(component,'wrap')
