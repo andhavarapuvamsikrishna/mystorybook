@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Tablecom from "./Tablecom";
 import Header from "./headercomponent/Header"
+import Button from "./buttoncomponent/Button"
 class App extends Component {
   constructor() {
     super();
@@ -41,6 +42,7 @@ class App extends Component {
           data={this.state.data}
           width="100%"
         />
+        <Button />
       </div>
     );
   }

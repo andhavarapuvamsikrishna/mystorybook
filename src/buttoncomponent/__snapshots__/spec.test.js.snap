@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`my button component matches the snapshot 1`] = `
+<div
+  style={
+    Object {
+      "textAlign": "center",
+    }
+  }
+>
+  <h1
+    data-test="counter1"
+  >
+    0
+  </h1>
+  <button
+    data-test="buttoni"
+    onClick={[Function]}
+    value="increment"
+  >
+    increment
+  </button>
+  <button
+    data-test="buttond"
+    onClick={[Function]}
+    value="decrement"
+  >
+    decrement
+  </button>
+</div>
+`;
