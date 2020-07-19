@@ -14,7 +14,7 @@ class Textarea extends Component {
         const {name, value} = event.target
         let v=value.length
         let m=40-v
-        if(m===-1)
+        if(m<0)
         {
             this.setState((prevState) => ({
                 [name]: prevState.r1,
@@ -34,7 +34,7 @@ class Textarea extends Component {
     render() {
         return (
             <form> 
-                <textarea  className="txt" placeholder="enter some text" name="r1" value={this.state.r1} onChange={this.handleChange}/>
+                <textarea  data-test="texta" className="txt" placeholder="enter some text" name="r1" value={this.state.r1} onChange={this.handleChange}/>
                 <br />
         <label>you have </label>
         <input type="text" name="r1" style={{width:"30px"}} value={this.state.characters}  readOnly/>left

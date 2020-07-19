@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import Tablecom from "./tablecomponent/Tablecom";
-import Header from "./headercomponent/Header"
-import Button from "./buttoncomponent/Button"
+import Tablecom from "./Tablecom";
+
 class App extends Component {
   constructor() {
     super();
@@ -35,22 +34,20 @@ class App extends Component {
  
   render() {
     return (
-      <div>
-        <Header /> 
+      
         <Tablecom key={this.state.field}
           headers={this.state.headers}  
           data={this.state.data}
-          width="100%" 
-          headerbackground="steelblue"
-          headerfontcolor="white"
-          bodybackground="white"
-          bodyfontcolor="black"
+          width="100%"
+          bodybackground="pink"
+          headerbackground="lightgreen"
+          bodyfontcolor="blue"
+          headerfontcolor="violet"
           hovercolor="red"
+
         />
-        <Button />
-      </div>
+  
     );
   }
 }
 export default App;
-  

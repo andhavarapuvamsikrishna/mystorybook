@@ -1,7 +1,7 @@
 import React from "react";
 import {shallow} from "enzyme"
 import Tablecom from "./Tablecom"
-import { findByTestAttr } from "./utils/find"
+import { findByTestAttr } from "../utils/find"
 import checkPropTypes from "check-prop-types"
 
 const setUp = (props={}) =>{
@@ -42,13 +42,13 @@ describe("my table component",()=>{
             const table=findByTestAttr(wrapper,"table")
             expect(table.length).toBe(0) 
         })
-        
+          
     })
 
     describe('Have props',() =>{
         const tprops = {  
             headers:[
-                { title: "Id" }, 
+                { title: "Id" },   
                 { title: "Name" },
                 { title: "Age" },
                 { title: "Qualification" },

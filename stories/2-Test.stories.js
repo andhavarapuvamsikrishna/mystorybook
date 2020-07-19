@@ -1,11 +1,13 @@
-import React from "react"
-import App from "../src/App"
-import Textarea from "../src/Textarea"
-import Tablecom from "../src/Tablecom"
+import React from "react";
+import App from "../src/App";
+import Tablecomimpl from "../src/tablecomponent/Tablecomimpl";
+import Textarea from "../src/textareacomponent/Textarea";
+import Button from "../src/buttoncomponent/Button";
 export default {
-    title:"Test"
-}
+  title: "Test",
+};
 
-export const textarea = () => <Textarea />
-export const app= () =><App />
-export const tablecom = () =><Tablecom />
+export const textarea = () => <Textarea />;
+export const table = () => <Tablecomimpl />;
+export const counter = () => <Button />;
+export const app = () => <App />;

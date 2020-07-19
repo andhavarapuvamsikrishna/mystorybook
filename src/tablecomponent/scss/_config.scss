@@ -1,0 +1,14 @@
+$padding-1 : 12px;
+$border:1px solid black;
+
+@function headerpad()
+{
+    @return 12px,0;
+}
+
+@mixin setTableBody()
+{
+    
+    padding:8px;
+    height:50px;
+}

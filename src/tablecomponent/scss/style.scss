@@ -1,0 +1,19 @@
+@import 'config';
+#students{
+  font-family:Arial;
+  border-collapse:collapse;
+  width:100%;
+  th{
+    padding:headerpad();
+    border:1px solid black;
+    text-align:left;
+  }
+  tr{
+    @include setTableBody();
+    //aligning and padding of body
+  }
+  td{
+    border:$border;
+    padding-left:8px;
+  }
+}

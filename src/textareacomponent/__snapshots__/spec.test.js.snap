@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`my text area component should match the snapshot 1`] = `
+<form>
+  <textarea
+    className="txt"
+    data-test="texta"
+    name="r1"
+    onChange={[Function]}
+    placeholder="enter some text"
+    value=""
+  />
+  <br />
+  <label>
+    you have 
+  </label>
+  <input
+    name="r1"
+    readOnly={true}
+    style={
+      Object {
+        "width": "30px",
+      }
+    }
+    type="text"
+    value={40}
+  />
+  left
+</form>
+`;
