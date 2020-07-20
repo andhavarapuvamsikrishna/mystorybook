@@ -24,7 +24,17 @@ describe("my text area component",() =>{
         expect(textarea.props().value).toEqual("vamsi")    
   
     })
-    it("should have maximum 40 characters",()=>{
+    it("should take any type of value",()=>{
+        //let v="my name is vamsikrishna, iam doing intern"
+         const wrapper=setUp()
+         let textarea=findByTestAttr(wrapper,"texta")
+         textarea.simulate('change',{target:{name:"r1",value:"%%%%^&** +krishna"}}) 
+         
+         textarea=findByTestAttr(wrapper,"texta")   
+         expect(wrapper.state('r1')).toEqual("%%%%^&** +krishna")      
+       
+     })      
+    it("should have maximum 40 characters",()=>{ 
        //let v="my name is vamsikrishna, iam doing intern"
         const wrapper=setUp()
         let textarea=findByTestAttr(wrapper,"texta")

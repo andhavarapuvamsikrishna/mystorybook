@@ -3,13 +3,20 @@ import {shallow} from "enzyme"
 import Tablecom from "./Tablecom"
 import { findByTestAttr } from "../utils/find"
 import checkPropTypes from "check-prop-types"
+import renderer from "react-test-renderer"
 
 const setUp = (props={}) =>{
     const component=shallow(<Tablecom {...props} />)
     return component;
 } ;
 describe("my table component",()=>{
-
+    describe("my screenshot",()=>{
+        it("should match the snapshot",()=>{
+            const tree=renderer.create(<Tablecom />).toJSON()
+            expect(tree).toMatchSnapshot()
+        })
+    })
+     
     describe("checking prop types",() =>{
         it("should not throw a warning",() =>{
             const expectedProps = {  
@@ -17,7 +24,7 @@ describe("my table component",()=>{
                 headers:[
                     { title: "Id" }, 
                     { title: "Name" },
-                    { title: "Age" },
+                    { title: "Age" }, 
                     { title: "Qualification" },  
                     { title: "Rating" },
                   ],
@@ -44,6 +51,7 @@ describe("my table component",()=>{
         })
           
     })
+    
 
     describe('Have props',() =>{
         const tprops = {  
@@ -84,6 +92,10 @@ describe("my table component",()=>{
             //console.log(props.data.length) 
             wrapper=setUp(props)  
         });  
+        it("tbody should have the same no of tr tags as data rows",() =>{
+             const tr=findByTestAttr(wrapper,"tr")
+             expect(tr.length).toBe(tprops.data.length)
+         }) 
         it("should render without errors",() => {
             const table = findByTestAttr(wrapper,"nann")
             expect(table.length).toBe(1);
@@ -102,10 +114,15 @@ describe("my table component",()=>{
             const th=findByTestAttr(wrapper,"th")
             expect(th.length).toBe(tprops.data.length) 
         })
+        
         it("tbody should have the same no of tr tags as data rows",() =>{
             const tr=findByTestAttr(wrapper,"tr")
             expect(tr.length).toBe(tprops.data.length)
         }) 
+        it("should contain one header ",() => {
+            const thead=findByTestAttr(wrapper,"thead")
+            expect(thead.length).toBe(1);
+        })
         it("same number of content in header props and table props",() =>{
             const hrows=findByTestAttr(wrapper,"th")
             hrows.forEach((th,rowIndex) => { 
@@ -113,8 +130,9 @@ describe("my table component",()=>{
                 expect(cells.length).toBe(tprops.headers.length)
  
             })  
+         
               
-        }) 
+        })  
 
     })
 
