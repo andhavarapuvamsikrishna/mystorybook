@@ -27,6 +27,11 @@ class App extends Component {
         { id: 10, name: "a", age: 29, qualification: "B.tech", rating: 2 },
         { id: 11, name: "a", age: 29, qualification: "B.arch", rating: 1 },
         { id: 12, name: "a", age: 29, qualification: "B.Com", rating: 5 },
+        { id: 13, name: "x", age: 35, qualification: "B.Sc", rating: 5 },
+        { id: 14, name: "y", age: 42, qualification: "B.E", rating: 3 },
+        { id: 15, name: "a", age: 29, qualification: "B.tech", rating: 2 },
+        { id: 16, name: "b", age: 29, qualification: "B.arch", rating: 1 },
+        { id: 17, name: "j", age: 29, qualification: "B.Com", rating: 5 },
       ],
       field:1
     }
